@@ -44,26 +44,27 @@ class GitFunctions:
         self.repo.index.commit(commit_message)
         print(f'{count} : committed file : {commit}')
 
+class Main:
+    def main(self):
+        # commit object
+        commit = GitFunctions()
+        # counter for counter committed files
+        count = 0
+        # commit message
+        commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        # add files to stage and commit
+        for i in commit.repo.untracked_files:
+            commit.GitCommandRunner(count, i, commit_message)
+            count += 1
+        for item in commit.repo.index.diff(None):
+            commit.GitCommandRunner(count, item.a_path, commit_message)
+            count += 1
+        # push all commits at once
+        commit.origin.push()
 
-def main():
-    # commit object
-    commit = GitFunctions()
-    # counter for counter committed files
-    count = 0
-    # commit message
-    commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-    # add files to stage and commit
-    for i in commit.repo.untracked_files:
-        commit.GitCommandRunner(count, i, commit_message)
-        count += 1
-    for item in commit.repo.index.diff(None):
-        commit.GitCommandRunner(count, item.a_path, commit_message)
-        count += 1
-    # push all commits at once
-    commit.origin.push()
-
-    print(f"Done !!! committing : {count} files")
+        print(f"Done !!! committing : {count} files")
 
 
 if __name__ == '__main__':
-    main()
+    mainObject = Main()
+    mainObject.main()
