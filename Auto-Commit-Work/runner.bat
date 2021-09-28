@@ -1,2 +1,2 @@
 main.py
-paused
+pause
