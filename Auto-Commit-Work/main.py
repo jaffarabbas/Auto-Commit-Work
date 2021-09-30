@@ -40,9 +40,13 @@ class GitFunctions:
     origin = repo.remote('origin')
 
     def GitCommandRunner(self, count, commit, commit_message):
-        self.repo.index.add(commit)
-        self.repo.index.commit(commit_message)
-        print(f'{count} : committed file : {commit}')
+        if count == 50:
+            self.origin.push()
+            print(f"Done !!! committing : {count} files")
+        else:
+            self.repo.index.add(commit)
+            self.repo.index.commit(commit_message)
+            print(f'{count} : committed file : {commit}')
 
 class Main:
     def main(self):
@@ -56,9 +60,13 @@ class Main:
         for i in commit.repo.untracked_files:
             commit.GitCommandRunner(count, i, commit_message)
             count += 1
+            if count == 51:
+                count = 0
         for item in commit.repo.index.diff(None):
             commit.GitCommandRunner(count, item.a_path, commit_message)
             count += 1
+            if count == 50:
+                count = 0
         # push all commits at once
         commit.origin.push()
 
