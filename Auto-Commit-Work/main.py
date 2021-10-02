@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from git import Repo
 from git.db import GitCmdObjectDB
 from datetime import datetime
@@ -31,7 +32,7 @@ class Router(RepoUrls):
             else:
                 self.path = self.fileList[int(self.character) - 1]
                 break
-
+        print(self.path)
 
 class GitFunctions:
     route = Router()
