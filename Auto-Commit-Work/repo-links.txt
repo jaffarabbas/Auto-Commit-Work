@@ -1,7 +1,5 @@
-J:\Program\Github\COMMITS_BANGER
-J:\Auto-Commit-Work
-J:\Jawan-Pakistan-Flutter-Course
-J:\FLutter Mobile Application Development\FLutter-Mobile-Application-Development
-J:\Semester-4(Bsse)\Semester-4-Software-Engineering
-J:\maju
-J:\Windows-Backup
+~/Desktop/Github/Jawan-Pakistan-Flutter-Course
+~/Desktop/Github/Flutter-Mobile-Application-Development
+~/Desktop/Github/Python-Practice-Repo
+~/Desktop/Github/COMMITS_BANGER
+~/Desktop/Github/Auto-Commit-Work
