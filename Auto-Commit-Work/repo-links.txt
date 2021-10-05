@@ -3,3 +3,4 @@
 ~/Desktop/Github/Python-Practice-Repo
 ~/Desktop/Github/COMMITS_BANGER
 ~/Desktop/Github/Auto-Commit-Work
+~/Desktop/Github/Play-Store-Review-Scrapper
