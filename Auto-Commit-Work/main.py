@@ -60,13 +60,13 @@ class Main:
         for i in commit.repo.untracked_files:
             commit.GitCommandRunner(count, i, commit_message)
             count += 1
-            if count == 10:
+            if count == 130:
                commit.origin.push()
                count = 0
         for item in commit.repo.index.diff(None):
             commit.GitCommandRunner(count, item.a_path, commit_message)
             count += 1
-            if count == 10:
+            if count == 130:
                commit.origin.push()
                count = 0
         # push all commits at once
