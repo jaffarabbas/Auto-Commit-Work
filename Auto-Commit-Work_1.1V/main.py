@@ -1,15 +1,18 @@
 from git import Repo
 from git.db import GitCmdObjectDB
 from datetime import datetime
+from dotenv import load_dotenv
+import os
 
+# LOAD .ENV FILES
+load_dotenv()
 
 class RepoUrls:
-    file = open('repo-links.txt', 'r')
-    fileList = []
+    file = os.getenv("FILE_PATH")
+    fileList = os.listdir(file)
 
-    def PopulateList(self):
-        for filePath in self.file.read().split('\n'):
-            self.fileList.append(filePath)
+    def filePathMaker(self,constPath,path):
+        return constPath + path
 
 
 class Router(RepoUrls):
@@ -18,18 +21,18 @@ class Router(RepoUrls):
     path = ''
 
     def ChooseRoute(self):
-        self.PopulateList()
+        # self.PopulateList()
         print("choose repo : ")
         for i in self.fileList:
             self.count += 1
-            print(self.count, i)
+            print(self.count, self.filePathMaker(self.file,i))
 
         while True:
             self.character = input("Enter Repo Number: ")
             if self.character == 'X':
                 break
             else:
-                self.path = self.fileList[int(self.character) - 1]
+                self.path = self.filePathMaker(self.file,self.fileList[int(self.character) - 1])
                 break
         print(self.path)
 
