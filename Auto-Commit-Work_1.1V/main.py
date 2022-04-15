@@ -41,6 +41,7 @@ class GitFunctions:
     repo = Repo(route.path, odbt=GitCmdObjectDB)
     origin = repo.remote('origin')
 
+
     def GitCommandRunner(self, count, commit, commit_message):
         if count == 75:
             self.origin.push()
@@ -50,25 +51,25 @@ class GitFunctions:
             self.repo.index.commit(commit_message)
             print(f'{count} : committed file : {commit}')
 
+    def CommitMessage(self,fileName):
+        commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        return fileName.split("/",1)[1] +" "+commit_message
+
 class Main:
     def main(self):
         # commit object
         commit = GitFunctions()
         # counter for counter committed files
         count = 0
-        # commit message
-        commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         # add files to stage and commit
         for i in commit.repo.untracked_files:
-            commit.GitCommandRunner(count, i, (i+commit_message))
-            print(i+commit_message)
+            commit.GitCommandRunner(count, i, commit.CommitMessage(i))
             count += 1
             if count == 130:
                commit.origin.push()
                count = 0
         for item in commit.repo.index.diff(None):
-            commit.GitCommandRunner(count, item.a_path, commit_message)
-            print(item.a_path+commit_message)
+            commit.GitCommandRunner(count, item.a_path, commit.CommitMessage(str(item.a_path)))
             count += 1
             if count == 130:
                commit.origin.push()
