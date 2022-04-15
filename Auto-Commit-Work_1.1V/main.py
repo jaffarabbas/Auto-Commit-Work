@@ -53,7 +53,7 @@ class GitFunctions:
 
     def CommitMessage(self,type,fileName):
         commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-        return type +" "+fileName.split("/",1)[1] +" "+commit_message
+        return type +" "+fileName.split("/",1)[1] +" at "+commit_message
 
 class Main:
     def main(self):
