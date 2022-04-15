@@ -60,7 +60,8 @@ class Main:
         commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         # add files to stage and commit
         for i in commit.repo.untracked_files:
-            commit.GitCommandRunner(count, i, i+commit_message)
+            commit.GitCommandRunner(count, i, commit_message)
+            print(i+commit_message)
             count += 1
             if count == 130:
                commit.origin.push()
