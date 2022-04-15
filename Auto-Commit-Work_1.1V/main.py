@@ -68,7 +68,7 @@ class Main:
                count = 0
         for item in commit.repo.index.diff(None):
             commit.GitCommandRunner(count, item.a_path, commit_message)
-            print(item+commit_message)
+            print(item.a_path+commit_message)
             count += 1
             if count == 130:
                commit.origin.push()
