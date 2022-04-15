@@ -51,9 +51,9 @@ class GitFunctions:
             self.repo.index.commit(commit_message)
             print(f'{count} : committed file : {commit}')
 
-    def CommitMessage(self,fileName):
+    def CommitMessage(self,type,fileName):
         commit_message = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-        return fileName.split("/",1)[1] +" "+commit_message
+        return type +" "+fileName.split("/",1)[1] +" "+commit_message
 
 class Main:
     def main(self):
@@ -63,13 +63,13 @@ class Main:
         count = 0
         # add files to stage and commit
         for i in commit.repo.untracked_files:
-            commit.GitCommandRunner(count, i, commit.CommitMessage(i))
+            commit.GitCommandRunner(count, i, commit.CommitMessage("Inserted",str(i)))
             count += 1
             if count == 130:
                commit.origin.push()
                count = 0
         for item in commit.repo.index.diff(None):
-            commit.GitCommandRunner(count, item.a_path, commit.CommitMessage(str(item.a_path)))
+            commit.GitCommandRunner(count, item.a_path, commit.CommitMessage("Updated",str(item.a_path)))
             count += 1
             if count == 130:
                commit.origin.push()
