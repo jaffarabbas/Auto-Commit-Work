@@ -1,19 +1,4 @@
-D:\Github\Jawan-Pakistan-Flutter-Course
-D:\Github\Flutter-Mobile-Application-Development
-D:\Github\Python-Practice-Repo
-D:\Github\COMMITS_BANGER
-D:\Github\Auto-Commit-Work
-D:\Github\Play-Store-Review-Scrapper
-D:\Github\C-Plus-Practice-Repo
-D:\Github\React-Web-Application-Development
-D:\Github\Object-Oriented-Programming-Practice
-D:\Github\Semister-5-Software-Engineering-Maju
-D:\Github\C-sharp-Practice
-D:\Github\Windows-Backup
-D:\Github\Database-Management-Systems
-D:\Github\Institute-of-Fine-Art
-D:\Github\Software-Construction-and-Development
-D:\Github\Effort-Estimation-App
-D:\Github\Arduino-Water-Level-Tracking-In-Flutter
-D:\Github\Django-Rest-Framework
-D:\Github\Django Api's\DjangoTestApi
+J:\xampp\htdocs\Projects\Shopping-Cart-In-Php
+J:\xampp\htdocs\Projects\Ecommerce-Website-In-PHP
+J:\xampp\htdocs\Projects\login-register-in-php
+J:\xampp\htdocs\Projects\crud-in-php
